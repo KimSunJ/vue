@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>좋아요</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <div v-if="liked">좋아요 clicked!!</div>
+            <!-- <div>깍두기</div> -->
+            <button v-else v-on:click="onClickButton">Like</button>
+            <!-- Like 부분이 데이터에 해당 -->
+            <!-- vue가 데이터에 맞게 값을 바꿔준다 -->
+        </div>
+    </body>
+    <script>
+        const app = new Vue({
+            el: '#root',
+            // vue가 el 속성으로 데이터를 관리하는 중
+            data: {
+                liked: false,
+                // 데이터만 바꾸면 화면에서 vue가 알아서 수정해주는 것
+            },
+            methods: {
+                onClickButton() {
+                    this.liked = true;
+                    // liked라는 속성을 (바뀌는 값) false에서 true로 변환해주는 것
+                    // 데이터만 관리한다.
+                },
+            },
+        });
+    </script>
+</html>
